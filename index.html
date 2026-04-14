@@ -298,6 +298,8 @@
       color: #D4AF37;
       /* Classic Metallic Gold */
       text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.3), -0.5px -0.5px 1px rgba(0, 0, 0, 0.5);
+      /* FIX FOR CUT OFF LETTERS: */
+      overflow: visible !important;
     }
 
     .pressed-seal span {
@@ -309,6 +311,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+      /* ADD THESE FOR IOS: */
+      padding: 0 15px;      /* Adds invisible space for the L's tail to breathe */
+      margin: 0 -5px;       /* Tightens the gap back up so they don't look too far apart */
+      overflow: visible;    /* Ensures Safari doesn't clip the flourish */
     }
 
     /* Ensure the seal container has enough room for bigger text */
