@@ -871,7 +871,7 @@
       color: var(--cream);
       letter-spacing: 2px;
       animation: fadeUp 1s 0.45s ease both;
-      margin-top: 18px;
+      margin-top: 120px;
       text-shadow: 0 1px 8px rgba(0,0,0,0.6);
     }
 
@@ -884,7 +884,7 @@
       line-height: 2;
       letter-spacing: 0.5px;
       animation: fadeUp 1s 0.6s ease both;
-      margin-top: 14px;
+      margin-top: 30px;
       text-shadow: 0 1px 6px rgba(0,0,0,0.6);
     }
 
@@ -906,6 +906,97 @@
       to {
         transform: translate(-50%, -50%) rotate(360deg);
       }
+    }
+
+
+    /* ── DRESS CODE EXAMPLE IMAGES ── */
+    .dress-example-panels {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin: 28px 0 8px;
+      flex-wrap: wrap;
+    }
+    .dress-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      flex: 1 1 200px;
+      max-width: 280px;
+    }
+    .dress-panel-label {
+      font-family: var(--font-tenor);
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      opacity: 0.75;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dress-panel-label::before,
+    .dress-panel-label::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-deep));
+      opacity: 0.5;
+    }
+    .dress-panel-label::after {
+      background: linear-gradient(to left, transparent, var(--gold-deep));
+    }
+    .dress-photo-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .dress-photo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+    .dress-photo-frame {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(160,120,40,0.13);
+      border: 1px solid rgba(201,168,76,0.2);
+      background: var(--ivory);
+    }
+    .dress-example-img {
+      width: 110px;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      border-radius: 6px;
+      transition: transform 0.4s ease;
+    }
+    .dress-photo-frame:hover .dress-example-img {
+      transform: scale(1.03);
+    }
+    .dress-example-caption {
+      font-family: var(--font-tenor);
+      font-size: 8.5px;
+      letter-spacing: 2.5px;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      text-align: center;
+      opacity: 0.75;
+    }
+    .dress-panel-divider {
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.35), transparent);
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    @media(max-width:540px) {
+      .dress-example-img { width: 78px; height: 140px; }
+      .dress-panel-divider { display: none; }
+      .dress-example-panels { gap: 20px; }
     }
 
     /* ── COUNTDOWN (fixed) ── */
@@ -1131,26 +1222,30 @@
       font-size: 16px;
       font-style: italic;
       color: var(--text);
-      text-align: center;
+      text-align: center; /* Center everything by default */
       padding: 16px 12px;
       border-bottom: 1px solid rgba(201, 168, 76, 0.18);
       line-height: 1.4;
+      /* Ensure names take up the same height even if one is 2 lines */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
     }
 
-    .spon-col:first-child .spon-name {
-      text-align: left;
-      padding-left: 0;
+    @media (max-width: 600px) {
+    .spon-name {
+      font-size: 14px; /* Slightly smaller text for better fit */
+      padding: 12px 5px;
+      min-height: 60px; /* Forces boxes to be same height even if text wraps */
     }
-
-    .spon-col:last-child .spon-name {
-      text-align: right;
-      padding-right: 0;
+  
+    .spon-divider-v {
+      margin: 0 10px; /* Give a bit more breathing room to the center line */
     }
+  }
 
-    .spon-name:last-child {
-      border-bottom: none;
-    }
-
+  
     .par-col,
     .ent-col {
       background: var(--white);
@@ -4029,8 +4124,16 @@
       }
 
       .spon-name {
-        font-size: 18px;
-        padding: 11px 8px;
+        font-size: 13px;
+        padding: 11px 4px;
+        text-align: center !important;
+      }
+
+      .spon-col:first-child .spon-name,
+      .spon-col:last-child .spon-name {
+        text-align: center !important;
+        padding-left: 4px !important;
+        padding-right: 4px !important;
       }
     }
 
@@ -4895,7 +4998,7 @@
       <div class="thin-rule"></div><span>◆</span>
       <div class="thin-rule"></div>
     </div>
-    <p class="hero-date-line">May 10, 2026  ·  3:30 PM</p>
+    <p class="hero-date-line">May 10, 2026  ·  Sunday  ·  3:30 PM</p>
     <p class="hero-church">Iglesia ni Cristo<br>Locale of New Era<br>San Fernando, Pampanga</p>
   </section>
 
@@ -5460,6 +5563,52 @@
         </div>
       </div>
 
+      <!-- Dress Code Example Images -->
+      <div class="dress-example-panels">
+
+        <!-- Ladies Panel -->
+        <div class="dress-panel reveal-left">
+          <div class="dress-panel-label">For Ladies</div>
+          <div class="dress-photo-row">
+            <div class="dress-photo-item">
+              <div class="dress-photo-frame">
+                <img src="dress1.png" alt="Long Dress" class="dress-example-img">
+              </div>
+              <div class="dress-example-caption">Long Dress</div>
+            </div>
+            <div class="dress-photo-item">
+              <div class="dress-photo-frame">
+                <img src="dress2.png" alt="Sunday Dress" class="dress-example-img">
+              </div>
+              <div class="dress-example-caption">Sunday Dress</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="dress-panel-divider"></div>
+
+        <!-- Gentlemen Panel -->
+        <div class="dress-panel reveal-right">
+          <div class="dress-panel-label">For Gentlemen</div>
+          <div class="dress-photo-row">
+            <div class="dress-photo-item">
+              <div class="dress-photo-frame">
+                <img src="tux1.png" alt="Coat and Tie" class="dress-example-img">
+              </div>
+              <div class="dress-example-caption">Coat &amp; Tie</div>
+            </div>
+            <div class="dress-photo-item">
+              <div class="dress-photo-frame">
+                <img src="tux2.png" alt="Long Sleeves" class="dress-example-img">
+              </div>
+              <div class="dress-example-caption">Long Sleeves</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
       <!-- Horizontal divider -->
       <div class="dress-box-hrule"></div>
 
@@ -5532,7 +5681,7 @@
     </div>
 
     <!-- Wall -->
-    <div class="wishes-wall" id="wishesWall"></div>
+    <div class="wishes-wall" id="wishesWall" style="display:none;"></div>
   </section>
 
   <section id="hashtag">
@@ -5698,60 +5847,15 @@
       });
     });
 
-    // WISHES — Online sync via JSONBin (free, no auth needed for reading)
-    // Using JSONBin.io public bin — replace BIN_ID below with your own from jsonbin.io
-    // For now, falls back to localStorage while syncing
-    const WISHES_BIN_ID = 'ejay-liane-wishes-2026'; // placeholder, see setup note
-    const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/'; // requires API key for write
-    const defaultWishes = [
-
-    ];
-
-    // GitHub Gist approach — read/write to a public gist
-    // SETUP: Create a GitHub Gist with a file called "wishes.json" containing []
-    // Then paste the Gist ID below:
-    const GIST_ID = 'b4b131f12ec0e39cd186b496e8bb7ba0'; // e.g. 'a1b2c3d4e5f6...'
-    const GIST_TOKEN = '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'; // Leave empty for read-only; add token for writes
+    // ── GOOGLE SHEETS WISHES ──
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyb5mYU-7gzomEo_AyHmM95ZXfa2HffBAU_fqBD4whnxLH4WQAIK0CY7KmsNm_1fVAw/exec';
 
     let onlineWishes = [];
-    let localWishes = [];
     let usingOnline = false;
 
     function getTimestamp() {
       const d = new Date();
       return d.toLocaleDateString('en-PH', { month: 'short', day: 'numeric', year: 'numeric' });
-    }
-
-    async function loadOnlineWishes() {
-      if (!GIST_ID || GIST_ID === 'b4b131f12ec0e39cd186b496e8bb7ba0') {
-        usingOnline = false;
-        return null;
-      }
-      try {
-        const r = await fetch(`https://api.github.com/gists/${GIST_ID}`, { cache: 'no-cache' });
-        if (!r.ok) throw new Error('gist fetch failed');
-        const data = await r.json();
-        const content = data.files['wishes.json']?.content || '[]';
-        onlineWishes = JSON.parse(content);
-        usingOnline = true;
-        document.getElementById('syncStatus').textContent = '✓ Live · ' + onlineWishes.length + ' messages shared';
-        return onlineWishes;
-      } catch (e) {
-        usingOnline = false;
-        return null;
-      }
-    }
-
-    async function saveToGist(wishes) {
-      if (!GIST_ID || GIST_ID === 'b4b131f12ec0e39cd186b496e8bb7ba0' || !GIST_TOKEN) return false;
-      try {
-        const r = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-          method: 'PATCH',
-          headers: { 'Authorization': 'token ' + GIST_TOKEN, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ files: { 'wishes.json': { content: JSON.stringify(wishes) } } })
-        });
-        return r.ok;
-      } catch (e) { return false; }
     }
 
     function loadLocalWishes() {
@@ -5760,34 +5864,65 @@
 
     function escapeHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
+    async function loadOnlineWishes() {
+      try {
+        // Apps Script GET: follow redirects, no extra headers needed
+        const r = await fetch(APPS_SCRIPT_URL, {
+          method: 'GET',
+          redirect: 'follow'
+        });
+        if (!r.ok) throw new Error('fetch failed: ' + r.status);
+        const data = await r.json();
+        onlineWishes = Array.isArray(data) ? data : [];
+        usingOnline = true;
+        document.getElementById('syncStatus').textContent = '✓ Live · ' + onlineWishes.length + ' messages shared';
+      } catch (e) {
+        usingOnline = false;
+        document.getElementById('syncStatus').textContent = '⚠ Offline · showing local messages';
+        console.error('loadOnlineWishes error:', e);
+      }
+    }
+
     function renderWishes() {
       const wall = document.getElementById('wishesWall');
       wall.innerHTML = '';
-      const source = usingOnline ? [...onlineWishes] : [...defaultWishes, ...loadLocalWishes()];
-      source.forEach(w => {
+      const source = usingOnline ? [...onlineWishes] : [...loadLocalWishes()];
+      // Filter out completely empty rows (can happen in Sheets)
+      const valid = source.filter(w => w.name && String(w.name).trim() && w.msg && String(w.msg).trim());
+      if (valid.length === 0) {
+        wall.innerHTML = '<p style="text-align:center;opacity:0.5;padding:2rem;">No messages yet — be the first!</p>';
+        return;
+      }
+      valid.forEach(w => {
         const c = document.createElement('div');
         c.className = 'wish-card reveal';
-        const preview = w.msg.length > 80 ? w.msg.substring(0, 80) + '…' : w.msg;
-        const needsExpand = w.msg.length > 80;
+        const msgText = String(w.msg);
+        const nameText = String(w.name);
+        // Format timestamp — handle Date objects, ISO strings, or plain strings
+        let timeText = '';
+        if (w.time) {
+          try {
+            const d = new Date(w.time);
+            timeText = isNaN(d.getTime()) ? String(w.time) : d.toLocaleDateString('en-PH', { month: 'short', day: 'numeric', year: 'numeric' });
+          } catch(_) { timeText = String(w.time); }
+        }
+        const preview = msgText.length > 80 ? msgText.substring(0, 80) + '…' : msgText;
+        const needsExpand = msgText.length > 80;
         c.innerHTML = `
         <div class="wish-card-header">
-          <div class="wish-name">${escapeHtml(w.name)}</div>
+          <div class="wish-name">${escapeHtml(nameText)}</div>
           ${needsExpand ? '<div class="wish-card-chevron">▼</div>' : ''}
         </div>
         <div class="wish-msg">${escapeHtml(preview)}</div>
-        ${needsExpand ? `<div class="wish-msg-full">${escapeHtml(w.msg)}</div>` : ''}
-        ${w.time ? `<div class="wish-timestamp">${escapeHtml(w.time)}</div>` : ''}
+        ${needsExpand ? `<div class="wish-msg-full">${escapeHtml(msgText)}</div>` : ''}
+        ${timeText ? `<div class="wish-timestamp">${escapeHtml(timeText)}</div>` : ''}
         <span class="wish-heart">✦</span>`;
         if (needsExpand) {
           c.addEventListener('click', function () {
             const expanded = this.classList.contains('expanded');
             this.classList.toggle('expanded');
-            const preview = this.querySelector('.wish-msg');
-            if (!expanded) {
-              preview.textContent = w.msg;
-            } else {
-              preview.textContent = w.msg.substring(0, 80) + '…';
-            }
+            const msgEl = this.querySelector('.wish-msg');
+            msgEl.textContent = expanded ? msgText.substring(0, 80) + '…' : msgText;
           });
         }
         wall.appendChild(c);
@@ -5800,55 +5935,55 @@
         document.getElementById('tabWrite').classList.add('active');
         document.getElementById('tabAll').classList.remove('active');
         document.getElementById('wishesFormPanel').style.display = '';
+        document.getElementById('wishesWall').style.display = 'none';
       } else {
         document.getElementById('tabAll').classList.add('active');
         document.getElementById('tabWrite').classList.remove('active');
         document.getElementById('wishesFormPanel').style.display = 'none';
+        document.getElementById('wishesWall').style.display = '';
+        // Refresh from Google Sheets every time "View All" is opened
+        loadOnlineWishes().then(() => renderWishes());
       }
     }
 
-    // ── GOOGLE SHEETS WISHES ──
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzxKjUY8spgwWgKMX499KtHkU57h3f0NtmntCYjI6RaxY6CQMUEVc2JF9d65vmFC2H2/exec';
+    window.submitWish = async function () {
+      const name = document.getElementById('wishName').value.trim();
+      const msg = document.getElementById('wishMsg').value.trim();
+      if (!name || !msg) return alert('Please enter your name & message.');
+      const entry = { name, msg, time: getTimestamp() };
 
-async function loadOnlineWishes() {
-  try {
-    const r = await fetch(APPS_SCRIPT_URL, { cache: 'no-cache' });
-    onlineWishes = await r.json();
-    usingOnline = true;
-    document.getElementById('syncStatus').textContent = '✓ Live · ' + onlineWishes.length + ' messages shared';
-  } catch (e) {
-    usingOnline = false;
-  }
-}
+      // POST to Google Apps Script.
+      // Must use no-cors — Apps Script doesn't return CORS headers on POST responses.
+      // This means we can't read the response, but the data WILL be saved to the sheet.
+      try {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(entry)
+        });
+      } catch (e) {
+        console.warn('POST failed, saving locally:', e);
+        const local = loadLocalWishes();
+        local.unshift(entry);
+        localStorage.setItem('ejayliane_wishes', JSON.stringify(local.slice(0, 50)));
+      }
 
-window.submitWish = async function () {
-  const name = document.getElementById('wishName').value.trim();
-  const msg = document.getElementById('wishMsg').value.trim();
-  if (!name || !msg) return alert('Please enter your name & message.');
-  const entry = { name, msg, time: getTimestamp() };
+      document.getElementById('wishName').value = '';
+      document.getElementById('wishMsg').value = '';
 
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify(entry)
-    });
-    onlineWishes.unshift(entry);
-    usingOnline = true;
-    document.getElementById('syncStatus').textContent = '✓ Live · ' + onlineWishes.length + ' messages shared';
-  } catch (e) {
-    const local = loadLocalWishes();
-    local.unshift(entry);
-    localStorage.setItem('ejayliane_wishes', JSON.stringify(local.slice(0, 50)));
-  }
+      // Optimistically show the new message immediately while we wait for Sheets to update
+      onlineWishes.unshift(entry);
+      usingOnline = true;
+      renderWishes();
+      switchTab('all');
 
-  document.getElementById('wishName').value = document.getElementById('wishMsg').value = '';
-  renderWishes();
-  switchTab('all');
-};
+      // Then after a short delay, re-fetch from Sheets to get the real saved state
+      setTimeout(() => loadOnlineWishes().then(() => renderWishes()), 2500);
+    };
 
-// Load wishes on page start
-loadOnlineWishes().then(() => renderWishes());
-renderWishes();
+    // Load wishes on page start
+    loadOnlineWishes().then(() => renderWishes());
 
 
     // QR code is now a static image — no JS generation needed
