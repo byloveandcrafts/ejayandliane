@@ -825,10 +825,11 @@
       font-family: var(--font-tenor);
       font-size: 9px;
       letter-spacing: 6px;
-      color: var(--gold-deep);
+      color: var(--gold-light);
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.9;
       animation: fadeUp 1s ease both;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
     }
 
     .hero-names {
@@ -867,22 +868,24 @@
       font-size: clamp(16px, 3vw, 24px);
       font-weight: 400;
       font-style: italic;
-      color: var(--text);
+      color: var(--cream);
       letter-spacing: 2px;
       animation: fadeUp 1s 0.45s ease both;
       margin-top: 18px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.6);
     }
 
     .hero-church {
       font-family: 'EB Garamond', serif;
       font-size: 15px;
       font-style: italic;
-      color: var(--gold-deep);
+      color: var(--gold-pale);
       max-width: 380px;
       line-height: 2;
       letter-spacing: 0.5px;
       animation: fadeUp 1s 0.6s ease both;
       margin-top: 14px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
     }
 
     .hero-sunburst {
@@ -1341,7 +1344,7 @@
 
     .promise-intro {
       font-family: 'EB Garamond', serif;
-      font-size: 17px;
+      font-size: 20px;
       font-style: italic;
       color: rgba(247, 237, 208, 0.55);
       margin: 18px auto 54px;
@@ -3521,7 +3524,7 @@
       }
     }
 
-    /* ── HERO ── */
+    /* ── HERO (photo background) ── */
     #home {
       min-height: 100vh;
       display: flex;
@@ -3530,93 +3533,26 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      background-color: var(--white);
-      /* Adds paper texture and a soft gold vignette framing the edges */
       background-image:
-        radial-gradient(circle at center, transparent 30%, rgba(201, 168, 76, 0.15) 150%),
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        linear-gradient(
+          to bottom,
+          rgba(14, 12, 7, 0.38) 0%,
+          rgba(14, 12, 7, 0.28) 40%,
+          rgba(14, 12, 7, 0.50) 100%
+        ),
+        url('FT-27.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
       padding-top: 40px;
       padding-bottom: 120px;
       text-align: center;
-    }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      /* An ultra-soft, moving liquid gradient */
-      background: linear-gradient(-45deg, #FFFFFF, #FCFAF5, rgba(201, 168, 76, 0.15), #FFFFFF);
-      background-size: 400% 400%;
-      animation: champagneSweep 12s ease-in-out infinite;
-      padding-top: 40px;
-      padding-bottom: 120px;
-      text-align: center;
-    }
-
-    /* Add this right below #home to make the shimmer move */
-    @keyframes champagneSweep {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      background-color: var(--white);
-      /* Draws concentric geometric gold arches from the top center */
-      background-image:
-        radial-gradient(ellipse at top, transparent 40%, rgba(201, 168, 76, 0.04) 41%, rgba(201, 168, 76, 0.04) 42%, transparent 43%),
-        radial-gradient(ellipse at top, transparent 50%, rgba(201, 168, 76, 0.06) 51%, rgba(201, 168, 76, 0.06) 52%, transparent 53%),
-        radial-gradient(ellipse at top, transparent 60%, rgba(201, 168, 76, 0.08) 61%, rgba(201, 168, 76, 0.08) 62%, transparent 63%),
-        radial-gradient(ellipse at top, transparent 70%, rgba(201, 168, 76, 0.12) 71%, rgba(201, 168, 76, 0.12) 72%, transparent 73%);
-      padding-top: 40px;
-      padding-bottom: 120px;
-      text-align: center;
-    }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      /* 1. We add a soft luxury gradient so the Arch is beautifully visible! */
-      background: linear-gradient(135deg, #FFFDF5 0%, #F1E2BA 100%) !important;
-      padding-top: 40px;
-      padding-bottom: 120px;
-      text-align: center;
-
-      /* 2. The Animation Variables */
       --arch-top: 0px;
       --arch-inset: 0px;
       --arch-radius: 0px;
-
-      /* 3. The Cutout Shape */
       clip-path: inset(var(--arch-top) var(--arch-inset) 0px var(--arch-inset) round var(--arch-radius) var(--arch-radius) 0px 0px);
       will-change: clip-path;
-      /* Makes the scroll animation buttery smooth */
     }
 
     /* ── SCROLL ARCH ── */
@@ -4093,7 +4029,7 @@
       }
 
       .spon-name {
-        font-size: 13px;
+        font-size: 18px;
         padding: 11px 8px;
       }
     }
@@ -5556,7 +5492,7 @@
 
       <!-- Bottom warning bar inside box -->
       <div class="dress-warning-bar">
-        ✦ &nbsp; Strictly White is Reserved to the Bride &nbsp; ✦
+        ✦ &nbsp; <strong>Strictly White is Reserved to the Bride</strong> &nbsp; ✦
       </div>
 
       <!-- Bottom ornament -->
